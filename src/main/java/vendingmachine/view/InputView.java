@@ -29,4 +29,8 @@ public class InputView {
         int input = Integer.parseInt(Console.readLine());
         return new Money(input);
     }
+
+    public String readProduct() {
+        return Console.readLine();
+    }
 }
