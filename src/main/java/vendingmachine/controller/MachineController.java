@@ -27,6 +27,7 @@ public class MachineController {
         return readInput(() -> {
             outputView.printChangeMessage();
             Coins coins = inputView.readChangePrice();
+            outputView.printNewLine();
             outputView.printChange(coins);
             return coins;
         });
@@ -35,14 +36,18 @@ public class MachineController {
     private Products readProducts() {
         return readInput(() -> {
             outputView.printProduct();
-            return inputView.readProducts();
+            Products products = inputView.readProducts();
+            outputView.printNewLine();
+            return products;
         });
     }
 
     private Money readMoney() {
         return readInput(() -> {
             outputView.printInputAmountMessage();
-            return inputView.readInputAmount();
+            Money money = inputView.readInputAmount();
+            outputView.printNewLine();
+            return money;
         });
     }
 
@@ -53,7 +58,11 @@ public class MachineController {
     }
 
     private String readProduct() {
-        return readInput(inputView::readProduct);
+        return readInput( () -> {
+            String product = inputView.readProduct();
+            outputView.printNewLine();
+            return product;
+        });
     }
 
     private <T> T readInput(Supplier<T> supplier) {
