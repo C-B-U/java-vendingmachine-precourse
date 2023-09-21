@@ -28,4 +28,8 @@ public enum Coin {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(""));
     }
+
+    public int getPrice() {
+        return this.amount;
+    }
 }

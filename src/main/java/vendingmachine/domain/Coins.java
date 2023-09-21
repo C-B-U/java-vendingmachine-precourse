@@ -1,6 +1,7 @@
 package vendingmachine.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import vendingmachine.constant.OutputMessage;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -26,5 +27,16 @@ public class Coins {
                 elements.put(coin, elements.get(coin)+1);
             }
         }
+    }
+
+    public String getChangeCoins() {
+        StringBuilder sb = new StringBuilder();
+        elements.keySet()
+                .forEach(value -> {
+                            String message = OutputMessage.CHANGE.toString();
+                            sb.append(String.format(message, value.getPrice(), elements.get(value)));
+                        }
+                );
+        return sb.toString();
     }
 }
