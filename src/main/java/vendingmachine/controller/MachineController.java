@@ -1,5 +1,6 @@
 package vendingmachine.controller;
 
+import vendingmachine.domain.Coins;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
@@ -9,7 +10,7 @@ public class MachineController {
     private final OutputView outputView = new OutputView();
 
     public void start() {
-        int change = readChangePrice();
+        new Coins(readChangePrice());
     }
 
     public int readChangePrice() {
