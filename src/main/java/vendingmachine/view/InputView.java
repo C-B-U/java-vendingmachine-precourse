@@ -2,9 +2,9 @@ package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import vendingmachine.domain.Product;
+import vendingmachine.domain.Products;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -15,10 +15,10 @@ public class InputView {
         return Integer.parseInt(Console.readLine());
     }
 
-    public List<Product> readProducts() {
+    public Products readProducts() {
         String input = Console.readLine();
-        return Arrays.stream(input.split(PRODUCT_DELIMITER))
+        return new Products(Arrays.stream(input.split(PRODUCT_DELIMITER))
                 .map(Product::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 }
