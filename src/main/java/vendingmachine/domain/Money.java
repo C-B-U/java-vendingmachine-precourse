@@ -10,6 +10,10 @@ public class Money {
         this.value = value;
     }
 
+    public void pay(int price) {
+        value -= price;
+    }
+
     public String getInputAmount() {
         return String.format(OutputMessage.INPUT_AMOUNT.toString() , value);
     }
