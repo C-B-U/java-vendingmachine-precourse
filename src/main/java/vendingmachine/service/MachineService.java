@@ -17,8 +17,11 @@ public class MachineService {
         this.money = money;
     }
 
-    public void purchaseProduct(String name) {
-        Product product = products.findByProductName(name);
+    public Product findProductByName(String name) {
+        return products.findByProductName(name);
+    }
+
+    public void purchaseProduct(Product product) {
         money.pay(product.getPrice());
         product.purchase();
     }

@@ -2,6 +2,7 @@ package vendingmachine.controller;
 
 import vendingmachine.domain.Coins;
 import vendingmachine.domain.Money;
+import vendingmachine.domain.Product;
 import vendingmachine.domain.Products;
 import vendingmachine.service.MachineService;
 import vendingmachine.view.InputView;
@@ -53,15 +54,15 @@ public class MachineController {
 
     private void purchaseGoods() {
         outputView.printInputAmount(service.getMoney());
-        outputView.printPurchaseGoods();
         service.purchaseProduct(readProduct());
     }
 
-    private String readProduct() {
-        return readInput( () -> {
-            String product = inputView.readProduct();
+    private Product readProduct() {
+        return readInput(() -> {
+            outputView.printPurchaseGoods();
+            String productName = inputView.readProduct();
             outputView.printNewLine();
-            return product;
+            return service.findProductByName(productName);
         });
     }
 
