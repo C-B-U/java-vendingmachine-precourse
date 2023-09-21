@@ -2,6 +2,7 @@ package vendingmachine.service;
 
 import vendingmachine.domain.Coins;
 import vendingmachine.domain.Money;
+import vendingmachine.domain.Product;
 import vendingmachine.domain.Products;
 
 public class MachineService {
@@ -14,6 +15,12 @@ public class MachineService {
         this.coins = coins;
         this.products = products;
         this.money = money;
+    }
+
+    public void purchaseProduct(String name) {
+        Product product = products.findByProductName(name);
+        money.pay(product.getPrice());
+        product.purchase();
     }
 
     public Money getMoney() {
