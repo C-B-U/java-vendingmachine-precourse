@@ -21,4 +21,8 @@ public class InputView {
                 .map(Product::new)
                 .collect(Collectors.toList()));
     }
+
+    public int readInputAmount() {
+        return Integer.parseInt(Console.readLine());
+    }
 }
