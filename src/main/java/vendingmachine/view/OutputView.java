@@ -17,4 +17,8 @@ public class OutputView {
     public void printProduct() {
         System.out.println(OutputMessage.READ_PRODUCT);
     }
+
+    public void printInputAmount() {
+        System.out.println(OutputMessage.READ_INPUT_AMOUNT);
+    }
 }
