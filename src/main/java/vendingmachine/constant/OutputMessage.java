@@ -7,7 +7,8 @@ public enum OutputMessage {
     CHANGE("%d원 - %d개\n"),
     READ_PRODUCT("상품명과 가격, 수량을 입력해 주세요."),
     READ_INPUT_AMOUNT("투입 금액을 입력해 주세요."),
-    INPUT_AMOUNT("투입 금액: %d원");
+    INPUT_AMOUNT("투입 금액: %d원"),
+    PURCHASE_GOODS("구매할 상품명을 입력해 주세요.");
 
     private final String message;
 

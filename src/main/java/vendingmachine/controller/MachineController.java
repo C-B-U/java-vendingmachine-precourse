@@ -15,6 +15,7 @@ public class MachineController {
 
     public void start() {
         service = new MachineService(readChangePrice(), readProducts(), readMoney());
+        purchaseGoods();
     }
 
     private Coins readChangePrice() {
@@ -30,7 +31,12 @@ public class MachineController {
     }
 
     private Money readMoney() {
-        outputView.printInputAmount();
+        outputView.printInputAmountMessage();
         return inputView.readInputAmount();
+    }
+
+    private void purchaseGoods() {
+        outputView.printInputAmount(service.getMoney());
+        outputView.printPurchaseGoods();
     }
 }

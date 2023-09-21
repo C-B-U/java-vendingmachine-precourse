@@ -2,6 +2,7 @@ package vendingmachine.view;
 
 import vendingmachine.constant.OutputMessage;
 import vendingmachine.domain.Coins;
+import vendingmachine.domain.Money;
 
 public class OutputView {
 
@@ -18,7 +19,15 @@ public class OutputView {
         System.out.println(OutputMessage.READ_PRODUCT);
     }
 
-    public void printInputAmount() {
+    public void printInputAmountMessage() {
         System.out.println(OutputMessage.READ_INPUT_AMOUNT);
+    }
+
+    public void printInputAmount(Money money){
+        System.out.println(money.getInputAmount());
+    }
+
+    public void printPurchaseGoods() {
+        System.out.println(OutputMessage.PURCHASE_GOODS);
     }
 }
