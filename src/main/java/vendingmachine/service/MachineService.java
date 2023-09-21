@@ -27,6 +27,10 @@ public class MachineService {
         return products.isExistProduct() && money.isEnoughMoney(products.getMinPrice());
     }
 
+    public String calculateChange() {
+        return coins.getChange(money.getValue());
+    }
+
     public Money getMoney() {
         return money;
     }

@@ -39,4 +39,50 @@ public class Coins {
                 );
         return sb.toString();
     }
+
+    public String getChange(int money) {
+        Map<Coin, Integer> change = new EnumMap<>(Coin.class);
+        calculateChange(change, money);
+        StringBuilder sb = new StringBuilder();
+        return makeScreen(change, sb);
+    }
+
+    private void calculateChange(Map<Coin, Integer> change, int money) {
+        for (Coin coin: Coin.values()) {
+            if (coin.getPrice() < money) {
+                int coinNumber = calculateCoinNumber(money, coin);
+                elements.put(coin, elements.get(coin) - coinNumber);
+                change.put(coin, coinNumber);
+                money -= coinNumber * coin.getPrice();
+            }
+            if (money <= 0 || isExistChange()) {
+                break;
+            }
+        }
+    }
+
+    private String makeScreen(Map<Coin, Integer> change, StringBuilder sb) {
+        change.keySet()
+                .forEach(value -> {
+                            String message = OutputMessage.CHANGE.toString();
+                            sb.append(String.format(message, value.getPrice(), change.get(value)));
+                        }
+                );
+        return sb.toString();
+    }
+
+    private boolean isExistChange() {
+        return elements.values()
+                .stream()
+                .mapToInt(i -> i)
+                .sum() <= 0;
+    }
+
+    private int calculateCoinNumber(int money, Coin coin) {
+        int num = money % coin.getPrice();
+        if (elements.get(coin) > num) {
+            return elements.get(coin);
+        }
+        return num;
+    }
 }

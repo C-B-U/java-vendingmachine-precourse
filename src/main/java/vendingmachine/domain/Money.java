@@ -29,4 +29,8 @@ public class Money {
     public String getInputAmount() {
         return String.format(OutputMessage.INPUT_AMOUNT.toString() , value);
     }
+
+    public int getValue() {
+        return value;
+    }
 }

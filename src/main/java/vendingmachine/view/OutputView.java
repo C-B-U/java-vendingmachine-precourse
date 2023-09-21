@@ -30,4 +30,8 @@ public class OutputView {
     public void printPurchaseGoods() {
         System.out.println(OutputMessage.PURCHASE_GOODS);
     }
+
+    public void printChange(String message) {
+        System.out.println(message);
+    }
 }

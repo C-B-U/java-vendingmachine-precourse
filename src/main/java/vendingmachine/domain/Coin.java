@@ -19,6 +19,7 @@ public enum Coin {
     public static List<Integer> getCoinKind() {
         return Arrays.stream(Coin.values())
                 .map(coin -> coin.amount)
+                .sorted()
                 .collect(Collectors.toList());
     }
 
@@ -27,6 +28,7 @@ public enum Coin {
                 .filter(coin -> coin.amount == value)
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(""));
+
     }
 
     public int getPrice() {

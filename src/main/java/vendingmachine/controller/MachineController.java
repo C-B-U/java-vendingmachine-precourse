@@ -18,6 +18,7 @@ public class MachineController {
         while (service.isOnSale()) {
             purchaseGoods();
         }
+        outputView.printChange(service.calculateChange());
     }
 
     private Coins readChangePrice() {
