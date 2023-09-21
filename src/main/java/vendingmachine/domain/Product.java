@@ -15,13 +15,13 @@ public class Product {
     private static final int PURCHASE_QUANTITY = 1;
 
     private final String name;
-    private final int price;
+    private final Price price;
     private int quantity;
 
     public Product(String message) {
         List<String> productInformation = parseString(message);
         this.name = productInformation.get(NAME_INDEX);
-        this.price = Integer.parseInt(productInformation.get(PRICE_INDEX));
+        this.price = new Price(Integer.parseInt(productInformation.get(PRICE_INDEX)));
         this.quantity = Integer.parseInt(productInformation.get(QUANTITY_INDEX));
     }
 
@@ -43,7 +43,7 @@ public class Product {
     }
 
     public int getPrice() {
-        return price;
+        return price.getValue();
     }
     @Override
     public String toString() {
