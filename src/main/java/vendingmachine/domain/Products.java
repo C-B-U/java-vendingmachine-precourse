@@ -19,4 +19,17 @@ public class Products {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_PRODUCT.toString()));
     }
+
+    public boolean isExistProduct() {
+        return elements.stream()
+                .anyMatch(Product::isExist);
+    }
+
+    public int getMinPrice() {
+        return elements.stream()
+                .filter(Product::isExist)
+                .mapToInt(Product::getPrice)
+                .min()
+                .orElseThrow(() -> new IllegalArgumentException(""));
+    }
 }

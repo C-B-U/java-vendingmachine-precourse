@@ -38,10 +38,13 @@ public class Product {
         this.quantity -= PURCHASE_QUANTITY;
     }
 
+    public boolean isExist() {
+        return quantity >= PURCHASE_QUANTITY;
+    }
+
     public int getPrice() {
         return price;
     }
-
     @Override
     public String toString() {
         return name + "\n" + price + "\n" + quantity;

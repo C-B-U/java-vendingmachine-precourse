@@ -15,7 +15,9 @@ public class MachineController {
 
     public void start() {
         service = new MachineService(readChangePrice(), readProducts(), readMoney());
-        purchaseGoods();
+        while (service.isOnSale()) {
+            purchaseGoods();
+        }
     }
 
     private Coins readChangePrice() {

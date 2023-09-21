@@ -22,6 +22,10 @@ public class Money {
         }
     }
 
+    public boolean isEnoughMoney(int minPrice) {
+        return value >= minPrice;
+    }
+
     public String getInputAmount() {
         return String.format(OutputMessage.INPUT_AMOUNT.toString() , value);
     }

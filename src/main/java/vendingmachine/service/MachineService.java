@@ -23,6 +23,10 @@ public class MachineService {
         product.purchase();
     }
 
+    public boolean isOnSale() {
+        return products.isExistProduct() && money.isEnoughMoney(products.getMinPrice());
+    }
+
     public Money getMoney() {
         return money;
     }
