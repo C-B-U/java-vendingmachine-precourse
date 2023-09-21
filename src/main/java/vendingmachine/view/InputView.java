@@ -1,6 +1,8 @@
 package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import vendingmachine.domain.Coins;
+import vendingmachine.domain.Money;
 import vendingmachine.domain.Product;
 import vendingmachine.domain.Products;
 
@@ -11,8 +13,9 @@ public class InputView {
 
     private static final String PRODUCT_DELIMITER = ";";
 
-    public int readChangePrice() {
-        return Integer.parseInt(Console.readLine());
+    public Coins readChangePrice() {
+        int input = Integer.parseInt(Console.readLine());
+        return new Coins(input);
     }
 
     public Products readProducts() {
@@ -22,7 +25,8 @@ public class InputView {
                 .collect(Collectors.toList()));
     }
 
-    public int readInputAmount() {
-        return Integer.parseInt(Console.readLine());
+    public Money readInputAmount() {
+        int input = Integer.parseInt(Console.readLine());
+        return new Money(input);
     }
 }
