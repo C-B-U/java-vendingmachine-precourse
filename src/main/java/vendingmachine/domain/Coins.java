@@ -1,6 +1,8 @@
 package vendingmachine.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import vendingmachine.constant.Constant;
+import vendingmachine.constant.ExceptionMessage;
 import vendingmachine.constant.OutputMessage;
 
 import java.util.EnumMap;
@@ -13,11 +15,17 @@ public class Coins {
 
     public Coins(int price) {
         this.elements = new EnumMap<>(Coin.class);
+        validatePrice(price);
         Coin.getCoinKind()
                 .forEach(value -> elements.put(Coin.getCoin(value), DEFAULT));
         createRandomCoins(price);
     }
 
+    private void validatePrice(int price) {
+        if (price % Constant.PRICE_UNIT.getValue() != 0) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_UNIT.toString());
+        }
+    }
     private void createRandomCoins(int price) {
         while (price > 0) {
             int value = Randoms.pickNumberInList(Coin.getCoinKind());

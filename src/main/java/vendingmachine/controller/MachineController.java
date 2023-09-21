@@ -7,6 +7,8 @@ import vendingmachine.service.MachineService;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
+import java.util.function.Supplier;
+
 public class MachineController {
 
     private final InputView inputView = new InputView();
@@ -22,25 +24,44 @@ public class MachineController {
     }
 
     private Coins readChangePrice() {
-        outputView.printChangeMessage();
-        Coins coins = inputView.readChangePrice();
-        outputView.printChange(coins);
-        return coins;
+        return readInput(() -> {
+            outputView.printChangeMessage();
+            Coins coins = inputView.readChangePrice();
+            outputView.printChange(coins);
+            return coins;
+        });
     }
 
     private Products readProducts() {
-        outputView.printProduct();
-        return inputView.readProducts();
+        return readInput(() -> {
+            outputView.printProduct();
+            return inputView.readProducts();
+        });
     }
 
     private Money readMoney() {
-        outputView.printInputAmountMessage();
-        return inputView.readInputAmount();
+        return readInput(() -> {
+            outputView.printInputAmountMessage();
+            return inputView.readInputAmount();
+        });
     }
 
     private void purchaseGoods() {
         outputView.printInputAmount(service.getMoney());
         outputView.printPurchaseGoods();
-        service.purchaseProduct(inputView.readProduct());
+        service.purchaseProduct(readProduct());
+    }
+
+    private String readProduct() {
+        return readInput(inputView::readProduct);
+    }
+
+    private <T> T readInput(Supplier<T> supplier) {
+        try {
+            return supplier.get();
+        } catch (IllegalArgumentException e) {
+            outputView.printExceptionMessage(e.getMessage());
+            return supplier.get();
+        }
     }
 }
