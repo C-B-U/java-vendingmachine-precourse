@@ -12,10 +12,11 @@ public class Product {
     private static final String PRODUCT_REGEX = "^\\[|\\]$";
     private static final String PRODUCT_DELIMITER = ",";
     private static final String BLANK = "";
+    private static final int PURCHASE_QUANTITY = 1;
 
     private final String name;
     private final int price;
-    private final int quantity;
+    private int quantity;
 
     public Product(String message) {
         List<String> productInformation = parseString(message);
@@ -31,6 +32,10 @@ public class Product {
 
     public boolean isSameName(String name) {
         return this.name.equals(name);
+    }
+
+    public void purchase() {
+        this.quantity -= PURCHASE_QUANTITY;
     }
 
     @Override
