@@ -13,4 +13,8 @@ public class OutputView {
         System.out.println(OutputMessage.CHANGE_MESSAGE);
         System.out.println(coins.getChangeCoins());
     }
+
+    public void printProduct() {
+        System.out.println(OutputMessage.READ_PRODUCT);
+    }
 }
