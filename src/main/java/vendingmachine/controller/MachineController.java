@@ -53,8 +53,11 @@ public class MachineController {
     }
 
     private void purchaseGoods() {
-        outputView.printInputAmount(service.getMoney());
-        service.purchaseProduct(readProduct());
+        readInput(() -> {
+            outputView.printInputAmount(service.getMoney());
+            service.purchaseProduct(readProduct());
+            return null;
+        });
     }
 
     private Product readProduct() {

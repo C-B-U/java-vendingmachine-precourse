@@ -45,8 +45,4 @@ public class Product {
     public int getPrice() {
         return price.getValue();
     }
-    @Override
-    public String toString() {
-        return name + "\n" + price + "\n" + quantity;
-    }
 }
