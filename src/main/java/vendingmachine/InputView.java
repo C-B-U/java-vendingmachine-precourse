@@ -18,6 +18,15 @@ public class InputView {
         });
     }
 
+    public Products inputProducts(){
+        return read(() -> {
+            outputView.printInputProductsDetail();
+            String products = Console.readLine();
+            inputValidator.validateDivisionProducts(products);
+            return new Products(products);
+        });
+    }
+
 
 
     private <T> T read(Supplier<T> input){
