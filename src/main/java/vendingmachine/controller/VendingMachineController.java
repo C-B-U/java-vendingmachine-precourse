@@ -5,8 +5,6 @@ import vendingmachine.domain.CoinRandomGenerator;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
-import java.util.List;
-
 public class VendingMachineController {
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
@@ -16,5 +14,6 @@ public class VendingMachineController {
         outputView.printInputAmountVendingMachineHas();
         int totalAmount = inputView.readAmountVendingMachineHas();
         coinGenerator.generate(totalAmount);
+        outputView.printCoinVendingMachineHas();
     }
 }
