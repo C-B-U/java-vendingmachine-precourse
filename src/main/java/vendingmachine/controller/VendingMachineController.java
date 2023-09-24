@@ -6,7 +6,6 @@ import vendingmachine.domain.VendingMachine;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 public class VendingMachineController {
@@ -36,6 +35,7 @@ public class VendingMachineController {
 
     public void purchaseProduct() {
         outputView.printInputProductWantedPurchase();
+        Product product = repeat(inputView::readProductWantedPurchase);
     }
 
     public <T> T repeat(Supplier<T> inputMethod) {

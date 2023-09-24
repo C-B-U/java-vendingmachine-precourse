@@ -9,6 +9,7 @@ public class Product {
 
     private final String name;
     private final int price;
+
     private final int quantity;
 
     public Product(String name, int price, int quantity) {
@@ -22,5 +23,17 @@ public class Product {
         if(price < MINIMUM_PRICE || price % TEN != MULTIPLES_OF_TEN) {
             throw new IllegalArgumentException(ErrorMessage.IS_WRONG_PRICE.toString());
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }

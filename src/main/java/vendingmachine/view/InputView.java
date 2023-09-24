@@ -2,6 +2,7 @@ package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import vendingmachine.domain.Product;
+import vendingmachine.domain.VendingMachine;
 import vendingmachine.message.StringElement;
 import vendingmachine.validator.InputValidator;
 
@@ -49,5 +50,11 @@ public class InputView {
         String[] element = string.replaceAll(BRACKET_REGEX, "").split(StringElement.COMMA.toString());
         validator.validateElementSize(element);
         return element;
+    }
+
+    public Product readProductWantedPurchase() {
+        String product = Console.readLine();
+        VendingMachine.isExist(product);
+        return VendingMachine.getProduct(product);
     }
 }
