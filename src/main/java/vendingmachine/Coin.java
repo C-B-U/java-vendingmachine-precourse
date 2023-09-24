@@ -1,11 +1,6 @@
 package vendingmachine;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Arrays;
-import java.util.List;
-
-import static java.util.Arrays.asList;
 
 public enum Coin {
     COIN_500(500, 0),
