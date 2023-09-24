@@ -2,10 +2,14 @@ package vendingmachine.view;
 
 import vendingmachine.Coin;
 import vendingmachine.message.ProcessMessage;
+import vendingmachine.message.StringElement;
 
 import java.util.Arrays;
 
 public class OutputView {
+    private static final String INSERT_AMOUNT = "투입 금액";
+    private static final String WON_UNIT = "원";
+
     public void printNewLine() {
         System.out.println();
     }
@@ -33,5 +37,10 @@ public class OutputView {
     public void printInputAmountForInsert() {
         printNewLine();
         System.out.println(ProcessMessage.INPUT_AMOUNT_FOR_INSERT);
+    }
+
+    public void printInsertAmount(int inputAmount) {
+        printNewLine();
+        System.out.println(INSERT_AMOUNT + StringElement.COLON + inputAmount + WON_UNIT);
     }
 }

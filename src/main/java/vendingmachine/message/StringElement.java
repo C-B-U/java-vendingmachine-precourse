@@ -3,6 +3,7 @@ package vendingmachine.message;
 public enum StringElement {
     OPEN_BRACKET("["),
     CLOSE_BRACKET("]"),
+    COLON(": "),
     SEMICOLON(";"),
     COMMA(",");
 

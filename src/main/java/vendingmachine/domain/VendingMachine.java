@@ -5,13 +5,17 @@ import java.util.List;
 
 public class VendingMachine {
     private final List<Product> products = new ArrayList<>();
-    private int amount;
+    private int inputAmount;
 
     public void add(Product product) {
         products.add(product);
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setInputAmount(int inputAmount) {
+        this.inputAmount = inputAmount;
+    }
+
+    public int getInputAmount() {
+        return inputAmount;
     }
 }

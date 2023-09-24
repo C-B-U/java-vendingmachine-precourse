@@ -17,22 +17,20 @@ public class VendingMachineController {
 
     public void start() {
         outputView.printInputAmountVendingMachineHas();
-        int totalAmount = repeat(inputView::readAmountVendingMachineHas);
-        coinGenerator.generate(totalAmount);
+        coinGenerator.generate(repeat(inputView::readAmountVendingMachineHas));
         outputView.printCoinVendingMachineHas();
         setProducts();
     }
 
     public void setProducts() {
-        List<Product> products = repeat(inputView::readProductToAdd);
-        products.forEach(vendingMachine::add);
-        insertAmount();
+        repeat(inputView::readProductToAdd).forEach(vendingMachine::add);
+        inputAmount();
     }
 
-    public void insertAmount() {
+    public void inputAmount() {
         outputView.printInputAmountForInsert();
-        int amount = repeat(inputView::readInsertAmount);
-        vendingMachine.setAmount(amount);
+        vendingMachine.setInputAmount(repeat(inputView::readInsertAmount));
+        outputView.printInsertAmount(vendingMachine.getInputAmount());
     }
 
     public <T> T repeat(Supplier<T> inputMethod) {
