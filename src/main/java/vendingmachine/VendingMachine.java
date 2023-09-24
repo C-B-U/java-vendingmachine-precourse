@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class VendingMachine {
     private final EnumMap<Coin, Integer> coins = new EnumMap<>(Coin.class);
     private final MakeRandomCoin makeRandomCoin = new MakeRandomCoin();
+    private Products products;
 
     public VendingMachine() {
         for (Coin coin : Coin.values()){
@@ -39,4 +40,7 @@ public class VendingMachine {
         return sb.toString();
     }
 
+    public void registerProducts(Products products) {
+        this.products = products;
+    }
 }
