@@ -22,10 +22,16 @@ public class OutputView {
         printNewLine();
         System.out.println(ProcessMessage.COIN_VENDING_MACHINE_HAS);
         Arrays.stream(Coin.values()).forEach(coin -> System.out.println(coin.getCount()));
+        printInputProductInformation();
     }
 
-    public void printInputGoodsInformation() {
+    public void printInputProductInformation() {
         printNewLine();
         System.out.println(ProcessMessage.INPUT_GOODS_INFORMATION);
+    }
+
+    public void printInputAmountForInsert() {
+        printNewLine();
+        System.out.println(ProcessMessage.INPUT_AMOUNT_FOR_INSERT);
     }
 }

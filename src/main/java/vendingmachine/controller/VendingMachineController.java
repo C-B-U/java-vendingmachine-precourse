@@ -2,7 +2,7 @@ package vendingmachine.controller;
 
 import vendingmachine.domain.CoinRandomGenerator;
 import vendingmachine.domain.Product;
-import vendingmachine.domain.Storage;
+import vendingmachine.domain.VendingMachine;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
@@ -13,7 +13,7 @@ public class VendingMachineController {
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
     private final CoinRandomGenerator coinGenerator = new CoinRandomGenerator();
-    private final Storage storage = new Storage();
+    private final VendingMachine vendingMachine = new VendingMachine();
 
     public void start() {
         outputView.printInputAmountVendingMachineHas();
@@ -23,12 +23,19 @@ public class VendingMachineController {
         setProducts();
     }
 
-    private void setProducts() {
-        outputView.printInputProductInformation();
+    public void setProducts() {
         List<Product> products = repeat(inputView::readProductToAdd);
+        products.forEach(vendingMachine::add);
+        insertAmount();
     }
 
-    private <T> T repeat(Supplier<T> inputMethod) {
+    public void insertAmount() {
+        outputView.printInputAmountForInsert();
+        int amount = repeat(inputView::readInsertAmount);
+        vendingMachine.setAmount(amount);
+    }
+
+    public <T> T repeat(Supplier<T> inputMethod) {
         try {
             return inputMethod.get();
         } catch (IllegalArgumentException e) {

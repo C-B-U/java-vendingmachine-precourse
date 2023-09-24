@@ -30,6 +30,12 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
+    public int readInsertAmount() {
+        String input = Console.readLine();
+        validator.validateIsDigit(input);
+        return Integer.parseInt(input);
+    }
+
     private Product parseProduct(String string) {
         String[] element = convertStringToArray(string);
         validator.validateIsDigit(element[PRODUCT_PRICE], element[PRODUCT_COUNT]);
