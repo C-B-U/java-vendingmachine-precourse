@@ -1,15 +1,9 @@
-package vendingmachine.domain;
+package vendingmachine.validator;
 
 import vendingmachine.message.ErrorMessage;
 
-public class Amount {
+public class InputValidator {
     private static final String REGEX = "^[0-9]+$";
-    private final int amount;
-
-    public Amount(String amount) {
-        validateIsDigit(amount);
-        this.amount = Integer.parseInt(amount);
-    }
 
     public void validateIsDigit(String number) {
         if (!number.matches(REGEX)) {

@@ -1,21 +1,24 @@
 package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import vendingmachine.domain.Amount;
 import vendingmachine.validator.InputValidator;
 
 public class InputView {
+    private final InputValidator validator = new InputValidator();
     private final OutputView outputView = new OutputView();
 
-    public Amount readAmountVendingMachineHas() {
-        Amount amount;
+    public int readAmountVendingMachineHas() {
         try {
-            String input = Console.readLine();
-            amount = new Amount(input);
+            return convertAmountToInteger();
         } catch (IllegalArgumentException e) {
             outputView.printExceptionMessage(e);
             return readAmountVendingMachineHas();
         }
-        return amount;
+    }
+
+    private int convertAmountToInteger() {
+        String input = Console.readLine();
+        validator.validateIsDigit(input);
+        return Integer.parseInt(input);
     }
 }
