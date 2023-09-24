@@ -25,4 +25,10 @@ public class InputValidator {
             throw new IllegalArgumentException(ErrorMessage.IS_WRONG_PRODUCT_ELEMENT.toString());
         }
     }
+
+    public void validateIsDigit(String firstString, String secondString) {
+        if (!firstString.matches(REGEX) || !secondString.matches(REGEX)) {
+            throw new IllegalArgumentException(ErrorMessage.IS_NOT_DIGIT.toString());
+        }
+    }
 }

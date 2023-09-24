@@ -32,8 +32,7 @@ public class InputView {
 
     private Product parseProduct(String string) {
         String[] element = convertStringToArray(string);
-        validator.validateIsDigit(element[PRODUCT_PRICE]);
-        validator.validateIsDigit(element[PRODUCT_COUNT]);
+        validator.validateIsDigit(element[PRODUCT_PRICE], element[PRODUCT_COUNT]);
         return new Product(element[PRODUCT_NAME],
                 Integer.parseInt(element[PRODUCT_PRICE]),
                 Integer.parseInt(element[PRODUCT_COUNT]));
