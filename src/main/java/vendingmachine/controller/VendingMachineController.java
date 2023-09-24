@@ -28,14 +28,17 @@ public class VendingMachineController {
 
     public void inputAmount() {
         outputView.printInputAmountForInsert();
-        vendingMachine.setInputAmount(repeat(inputView::readInsertAmount));
-        outputView.printInsertAmount(vendingMachine.getInputAmount());
+        vendingMachine.setUserAmount(repeat(inputView::readInsertAmount));
+        outputView.printInsertAmount(vendingMachine.getUserAmount());
         purchaseProduct();
     }
 
     public void purchaseProduct() {
-        outputView.printInputProductWantedPurchase();
-        Product product = repeat(inputView::readProductWantedPurchase);
+        while (vendingMachine.isPossibleToPurchase()) {
+            outputView.printInputProductWantedPurchase();
+            Product product = repeat(inputView::readProductWantedPurchase);
+            vendingMachine.reduceUserAmount(product.getPrice());
+        }
     }
 
     public <T> T repeat(Supplier<T> inputMethod) {
