@@ -31,6 +31,11 @@ public class VendingMachineController {
         outputView.printInputAmountForInsert();
         vendingMachine.setInputAmount(repeat(inputView::readInsertAmount));
         outputView.printInsertAmount(vendingMachine.getInputAmount());
+        purchaseProduct();
+    }
+
+    public void purchaseProduct() {
+        outputView.printInputProductWantedPurchase();
     }
 
     public <T> T repeat(Supplier<T> inputMethod) {

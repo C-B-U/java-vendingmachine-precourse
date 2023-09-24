@@ -43,4 +43,8 @@ public class OutputView {
         printNewLine();
         System.out.println(INSERT_AMOUNT + StringElement.COLON + inputAmount + WON_UNIT);
     }
+
+    public void printInputProductWantedPurchase() {
+        System.out.println(ProcessMessage.INPUT_PRODUCT_WANTED_PURCHASE);
+    }
 }
