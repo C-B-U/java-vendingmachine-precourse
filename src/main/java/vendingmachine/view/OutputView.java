@@ -23,4 +23,9 @@ public class OutputView {
         System.out.println(ProcessMessage.COIN_VENDING_MACHINE_HAS);
         Arrays.stream(Coin.values()).forEach(coin -> System.out.println(coin.getCount()));
     }
+
+    public void printInputGoodsInformation() {
+        printNewLine();
+        System.out.println(ProcessMessage.INPUT_GOODS_INFORMATION);
+    }
 }
