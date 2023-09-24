@@ -10,6 +10,10 @@ public class OutputView {
         System.out.println(ProgressMessage.INPUT_MACHINE_AMOUNT_HELD);
     }
 
+    public void printInputProductsDetail() {
+        System.out.println(ProgressMessage.INPUT_PRODUCTS_DETAIL);
+    }
+
     public void printEnter(){
         System.out.println();
     }
