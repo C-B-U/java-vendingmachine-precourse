@@ -2,6 +2,7 @@ package vendingmachine.io;
 
 import vendingmachine.constant.VendingMachineMessage;
 import vendingmachine.domain.Coins;
+import vendingmachine.domain.UserMoney;
 
 public class OutputView {
 
@@ -20,5 +21,10 @@ public class OutputView {
 
     public void printUserMoneyRequest() {
         System.out.println(VendingMachineMessage.USER_MONEY_REQUEST.getMessage());
+    }
+
+    public void printBuyProductRequest(final UserMoney userMoney) {
+        System.out.println(String.format(VendingMachineMessage.REMAINING_MONEY.getMessage(), userMoney.getAmount()));
+        System.out.println(VendingMachineMessage.BUY_PRODUCT_REQUEST.getMessage());
     }
 }

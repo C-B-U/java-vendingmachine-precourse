@@ -19,8 +19,8 @@
   - [x] 숫자인지 검증
   - [x] 투입 금액 저장
 - [ ] 상품 구매
-  - [ ] 구매할 상품명 입력 요청 메시지 출력
-  - [ ] 구매할 상품명 입력
+  - [x] 구매할 상품명 입력 요청 메시지 출력
+  - [x] 구매할 상품명 입력
   - [ ] 상품 구매
     - [ ] 금액 차감
     - [ ] 차감된 투입 금액 출력
@@ -38,11 +38,13 @@
   - printCoins()
   - printProductRequest()
   - printUserMoneyRequest()
+  - printBuyProductRequest()
 
 - InputView
   - readOwningMoney()
   - readProducts()
   - readUserMoney()
+  - readBuyProduct()
 
 - InputManager
   - readOwningMoney()
@@ -55,6 +57,10 @@
 
 - VendingMachineService
   - makeCoins
+  - saveProducts()
+  - saveUserMoney()
+  - findRemainingUserMoney()
+  - purchaseProduct()
 
 - VendingMachineRepository
   - saveCoins()
@@ -79,6 +85,11 @@
   - getName()
 
 - Products
+
+- UserMoney
+  - getAmount()
+
+- BuyProduct
 
 ## 열거형 목록
 - Coin
