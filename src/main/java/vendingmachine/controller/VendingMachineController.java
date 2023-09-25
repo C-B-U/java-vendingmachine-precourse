@@ -30,6 +30,7 @@ public class VendingMachineController {
     private void makeUserMoney() {
         outputView.printUserMoneyRequest();
         final UserMoney userMoney = inputManager.readUserMoney();
+        vendingMachineService.saveUserMoney(userMoney);
     }
 
     private void makeProduct() {

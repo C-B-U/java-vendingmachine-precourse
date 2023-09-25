@@ -13,11 +13,11 @@
   - [x] 상품명, 가격, 수량 입력
   - [x] 대괄호로 묶어 세미콜론으로 구분했는지 검증
   - [x] 상품 저장
-- [ ] 투입 금액 설정
+- [x] 투입 금액 설정
   - [x] 투입 금액 입력 요청 메시지 출력
   - [x] 투입 금액 입력
   - [x] 숫자인지 검증
-  - [ ] 투입 금액 저장
+  - [x] 투입 금액 저장
 - [ ] 상품 구매
   - [ ] 구매할 상품명 입력 요청 메시지 출력
   - [ ] 구매할 상품명 입력
@@ -61,6 +61,8 @@
   - findCoins()
   - saveProducts()
   - findProducts()
+  - saveUserMoney()
+  - findUserMoney()
 
 - RandomCoinGenerator
   - generate()
