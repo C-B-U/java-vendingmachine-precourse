@@ -1,4 +1,6 @@
-package vendingmachine;
+package vendingmachine.domain;
+
+import vendingmachine.constants.ErrorMessage;
 
 public class Product {
 
@@ -15,14 +17,14 @@ public class Product {
         this.amount = amount;
     }
 
-    private void validatePriceRule(int price) {
-        if (isaBreakPriceRule(price)){
-            throw new IllegalArgumentException(ErrorMessage.PRODUCT_PRICE_ERROR.getMessage());
-        }
-    }
-
     private static boolean isaBreakPriceRule(int price) {
         return price < MIN_PRICE || price % COIN_UNIT != 0;
+    }
+
+    private void validatePriceRule(int price) {
+        if (isaBreakPriceRule(price)) {
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_PRICE_ERROR.getMessage());
+        }
     }
 
     public int getPrice() {

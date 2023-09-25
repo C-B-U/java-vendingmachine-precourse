@@ -1,4 +1,6 @@
-package vendingmachine;
+package vendingmachine.domain;
+
+import vendingmachine.constants.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,20 +20,20 @@ public class Products {
                 .collect(Collectors.toList());
     }
 
-    public void validateInputMoney(String money){
+    public void validateInputMoney(String money) {
         int price = Integer.parseInt(money);
-        if(getMinProductPrice() > price){
+        if (getMinProductPrice() > price) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_MONEY_ERROR.getMessage());
         }
     }
 
     public void validateInputProductName(String name) {
-        if (products.stream().noneMatch(product -> product.getName().equals(name))){
+        if (products.stream().noneMatch(product -> product.getName().equals(name))) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_PRODUCT_NAME_ERROR.getMessage());
         }
     }
 
-    public boolean isBuyingProducts(int inputMoney){
+    public boolean isBuyingProducts(int inputMoney) {
         return inputMoney < getMinProductPrice() || isProductSoldOut();
     }
 
@@ -42,14 +44,14 @@ public class Products {
                 .orElse(Integer.MAX_VALUE);
     }
 
-    private boolean isProductSoldOut(){
+    private boolean isProductSoldOut() {
         int amount = products.stream()
                 .mapToInt(Product::getAmount)
                 .sum();
         return amount == 0;
     }
 
-    public int getProductPrice(String name){
+    public int getProductPrice(String name) {
         return products.stream()
                 .filter(product -> product.getName().equals(name))
                 .findFirst()

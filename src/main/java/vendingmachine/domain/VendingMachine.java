@@ -1,8 +1,10 @@
-package vendingmachine;
+package vendingmachine.domain;
+
+import vendingmachine.constants.Coin;
+import vendingmachine.constants.ScreenElement;
 
 import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class VendingMachine {
@@ -11,12 +13,12 @@ public class VendingMachine {
     private Products products;
 
     public VendingMachine() {
-        for (Coin coin : Coin.values()){
+        for (Coin coin : Coin.values()) {
             coins.put(coin, 0);
         }
     }
 
-    public void saveRandomCoin(int amount){
+    public void saveRandomCoin(int amount) {
         makeRandomCoin.makeCoins(amount);
         List<Integer> randomCoins = makeRandomCoin.getRandomCoins();
 
@@ -27,20 +29,14 @@ public class VendingMachine {
                 )));
     }
 
-    public String showRandomCoins(){
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<Coin, Integer> coins : coins.entrySet()){
-            sb.append(coins.getKey().toString())
-                    .append(ScreenElement.COIN_UNIT)
-                    .append(ScreenElement.DIVISION)
-                    .append(coins.getValue())
-                    .append(ScreenElement.COUNT_UNIT)
-                    .append("\n");
-        }
-        return sb.toString();
+    public String showRandomCoins() {
+        return coins.entrySet().stream()
+                .map(entry -> entry.getKey().toString() + ScreenElement.COIN_UNIT
+                        + ScreenElement.DIVISION + entry.getValue() + ScreenElement.COUNT_UNIT)
+                .collect(Collectors.joining("\n"));
     }
 
-    public EnumMap<Coin, Integer> returnChange(int inputMoney){
+    public EnumMap<Coin, Integer> returnChange(int inputMoney) {
         int remainingChange = inputMoney;
         EnumMap<Coin, Integer> changeCoins = new EnumMap<>(Coin.class);
 

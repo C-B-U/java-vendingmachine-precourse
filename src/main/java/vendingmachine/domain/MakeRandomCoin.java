@@ -1,5 +1,7 @@
-package vendingmachine;
+package vendingmachine.domain;
+
 import camp.nextstep.edu.missionutils.Randoms;
+import vendingmachine.constants.Coin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class MakeRandomCoin {
         return getSum(randomCoins) != amount;
     }
 
-    private int randomCoin(){
+    private int randomCoin() {
         return Randoms.pickNumberInList(Coin.coinPrices());
     }
 

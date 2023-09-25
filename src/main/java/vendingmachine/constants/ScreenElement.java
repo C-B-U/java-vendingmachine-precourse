@@ -1,4 +1,4 @@
-package vendingmachine;
+package vendingmachine.constants;
 
 public enum ScreenElement {
     COIN_UNIT("원"),

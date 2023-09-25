@@ -1,14 +1,16 @@
-package vendingmachine;
+package vendingmachine.view;
+
+import camp.nextstep.edu.missionutils.Console;
+import vendingmachine.domain.Products;
 
 import java.util.function.Supplier;
-import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
     private final OutputView outputView = new OutputView();
     private final InputValidator inputValidator = new InputValidator();
 
-    public Integer inputMachineAmountHeld(){
+    public Integer inputMachineAmountHeld() {
         return read(() -> {
             outputView.printInputMachineAmountHeld();
             String amount = Console.readLine();
@@ -18,7 +20,7 @@ public class InputView {
         });
     }
 
-    public Products inputProducts(){
+    public Products inputProducts() {
         return read(() -> {
             outputView.printInputProductsDetail();
             String products = Console.readLine();
@@ -28,7 +30,7 @@ public class InputView {
         });
     }
 
-    public Integer inputMoney(Products products){
+    public Integer inputMoney(Products products) {
         return read(() -> {
             outputView.printInputMoney();
             String money = Console.readLine();
@@ -50,12 +52,11 @@ public class InputView {
     }
 
 
-
-    private <T> T read(Supplier<T> input){
-        while (true){
+    private <T> T read(Supplier<T> input) {
+        while (true) {
             try {
                 return input.get();
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 outputView.printError(e.getMessage());
             }
         }

@@ -1,4 +1,4 @@
-package vendingmachine;
+package vendingmachine.constants;
 
 public enum ProgressMessage {
     INPUT_MACHINE_AMOUNT_HELD("자판기가 보유하고 있는 금액을 입력해 주세요."),

@@ -1,4 +1,4 @@
-package vendingmachine;
+package vendingmachine.constants;
 
 public enum ErrorMessage {
     MACHINE_COIN_NUMERIC_ERROR("숫자를 입력해 주세요"),
@@ -8,7 +8,6 @@ public enum ErrorMessage {
     PRODUCT_PRICE_ERROR("상품 가격은 100원부터 시작하며, 10원으로 나누어떨어져야 합니다."),
     INPUT_MONEY_ERROR("입력한 금액이 너무 적습니다."),
     INPUT_PRODUCT_NAME_ERROR("존재하지 않는 상품명 입니다.");
-
 
 
     private static final String ERROR = "[ERROR] ";
