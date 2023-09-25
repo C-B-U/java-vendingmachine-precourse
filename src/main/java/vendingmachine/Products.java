@@ -18,4 +18,11 @@ public class Products {
                 .collect(Collectors.toList());
     }
 
+    public void validateInputMoney(String money){
+        int price = Integer.parseInt(money);
+        if(products.stream().anyMatch(product -> product.getPrice() > price)){
+            throw new IllegalArgumentException(ErrorMessage.INPUT_MONEY_ERROR.getMessage());
+        }
+    }
+
 }
