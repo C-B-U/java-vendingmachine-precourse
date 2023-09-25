@@ -30,7 +30,7 @@ public class VendingMachine {
     public String showRandomCoins(){
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Coin, Integer> coins : coins.entrySet()){
-            sb.append(coins.getKey())
+            sb.append(coins.getKey().toString())
                     .append(ScreenElement.COIN_UNIT)
                     .append(ScreenElement.DIVISION)
                     .append(coins.getValue())
@@ -38,6 +38,22 @@ public class VendingMachine {
                     .append("\n");
         }
         return sb.toString();
+    }
+
+    public EnumMap<Coin, Integer> returnChange(int inputMoney){
+        int remainingChange = inputMoney;
+        EnumMap<Coin, Integer> changeCoins = new EnumMap<>(Coin.class);
+
+        for (Coin coin : Coin.values()) {
+            int coinValue = coin.getAmount();
+            int coinCount = coins.get(coin);
+            int changeCount = Math.min(coinCount, remainingChange / coinValue);
+
+            coins.put(coin, coins.get(coin) - changeCount);
+            changeCoins.put(coin, changeCount);
+            remainingChange -= changeCount * coinValue;
+        }
+        return changeCoins;
     }
 
     public void registerProducts(Products products) {
