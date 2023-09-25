@@ -6,12 +6,12 @@ import vendingmachine.domain.UserMoney;
 
 public class OutputView {
 
-    public void printOwningMoneyRequest() {
-        System.out.println(VendingMachineMessage.OWNING_MONEY_REQUEST.getMessage());
+    public void printVendingMachineMoneyRequest() {
+        System.out.println(VendingMachineMessage.VENDING_MACHINE_MONEY_REQUEST.getMessage());
     }
 
     public void printCoins(final Coins coins) {
-        System.out.println(VendingMachineMessage.OWNING_COINS.getMessage());
+        System.out.println(VendingMachineMessage.VENDING_MACHINE_COINS.getMessage());
         System.out.println(coins.getCoinMessage());
     }
 

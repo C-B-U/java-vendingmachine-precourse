@@ -21,8 +21,8 @@ public class InputManager {
         this.inputView = new InputView();
     }
 
-    public OwningMoney readOwningMoney() {
-        return read(() -> new OwningMoney(Integer.parseInt(inputView.readOwningMoney())));
+    public VendingMachineMoney readVendingMachineMoney() {
+        return read(() -> new VendingMachineMoney(Integer.parseInt(inputView.readVendingMachineMoney())));
     }
 
     public Products readProducts() {

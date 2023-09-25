@@ -1,6 +1,6 @@
 package vendingmachine.constant;
 
-import vendingmachine.domain.OwningMoney;
+import vendingmachine.domain.VendingMachineMoney;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +18,9 @@ public enum Coin {
         this.amount = amount;
     }
 
-    public static List<Integer> getCoinByOwningMoney(final OwningMoney owningMoney) {
+    public static List<Integer> getCoinByVendingMachineMoney(final VendingMachineMoney vendingMachineMoney) {
         return Arrays.stream(values())
-                .filter(value -> value.amount <= owningMoney.getValue())
+                .filter(value -> value.amount <= vendingMachineMoney.getValue())
                 .map(coin -> coin.amount)
                 .collect(Collectors.toList());
     }

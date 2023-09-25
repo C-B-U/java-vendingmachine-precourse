@@ -34,7 +34,7 @@
   - start()
 
 - OutputView
-  - printOwningMoney()
+  - printVendingMachineMoney()
   - printCoins()
   - printProductRequest()
   - printUserMoneyRequest()
@@ -42,13 +42,13 @@
   - printRemainingMoney()
 
 - InputView
-  - readOwningMoney()
+  - readVendingMachineMoney()
   - readProducts()
   - readUserMoney()
   - readBuyProduct()
 
 - InputManager
-  - readOwningMoney()
+  - readVendingMachineMoney()
   - readProducts()
   - readUserMoney()
 
@@ -74,7 +74,7 @@
 - RandomCoinGenerator
   - generate()
 
-- OwningMoney
+- VendingMachineMoney
   - getValue()
   - hasMoney()
   - minusValue()

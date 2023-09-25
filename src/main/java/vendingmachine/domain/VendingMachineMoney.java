@@ -1,15 +1,14 @@
 package vendingmachine.domain;
 
-import vendingmachine.constant.Coin;
 import vendingmachine.constant.ErrorMessage;
 
-public class OwningMoney {
+public class VendingMachineMoney {
 
     private static final int MONEY_UNIT = 10;
     private static final int NO_REMAINING_MONEY = 0;
     private Integer value;
 
-    public OwningMoney(final int value) {
+    public VendingMachineMoney(final int value) {
         validateMoneyUnit(value);
         this.value = value;
     }

@@ -15,8 +15,8 @@ public class VendingMachineService {
         this.randomCoinGenerator = new RandomCoinGenerator();
     }
 
-    public Coins makeCoins(final OwningMoney owningMoney) {
-        final Coins coins = randomCoinGenerator.generate(owningMoney);
+    public Coins makeCoins(final VendingMachineMoney vendingMachineMoney) {
+        final Coins coins = randomCoinGenerator.generate(vendingMachineMoney);
         return vendingMachineRepository.saveCoins(coins);
     }
 
