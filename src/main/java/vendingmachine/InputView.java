@@ -37,6 +37,15 @@ public class InputView {
         });
     }
 
+    public String inputBuyProduct(Products products) {
+        return read(() -> {
+            outputView.printInputBuyProductName();
+            String name = Console.readLine();
+            products.validateInputProductName(name);
+            return name;
+        });
+    }
+
 
 
     private <T> T read(Supplier<T> input){
