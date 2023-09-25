@@ -1,9 +1,6 @@
 package vendingmachine.io;
 
-import vendingmachine.domain.OwningMoney;
-import vendingmachine.domain.Product;
-import vendingmachine.domain.Products;
-import vendingmachine.domain.UserMoney;
+import vendingmachine.domain.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +34,10 @@ public class InputManager {
 
     public UserMoney readUserMoney() {
         return read(() -> new UserMoney(Integer.parseInt(inputView.readUserMoney())));
+    }
+
+    public BuyProduct readBuyProduct() {
+        return read(() -> new BuyProduct(inputView.readBuyProduct()));
     }
 
     private <T> T read(final Supplier<T> supplier) {
