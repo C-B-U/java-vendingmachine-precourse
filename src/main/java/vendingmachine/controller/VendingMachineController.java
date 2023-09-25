@@ -27,5 +27,6 @@ public class VendingMachineController {
         outputView.printOwningMoney();
         final OwningMoney owningMoney = inputManager.readOwningMoney();
         final Coins coins = vendingMachineService.makeCoins(owningMoney);
+        outputView.printCoins(coins);
     }
 }

@@ -31,4 +31,8 @@ public enum Coin {
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_AMOUNT.getMessage()));
     }
+
+    public int getAmount() {
+        return this.amount;
+    }
 }
