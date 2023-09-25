@@ -5,6 +5,7 @@ import vendingmachine.constant.ErrorMessage;
 public class OwningMoney {
 
     private static final int MONEY_UNIT = 10;
+    private static final int NO_REMAINING_MONEY = 0;
     private Integer value;
 
     public OwningMoney(final int value) {
@@ -23,7 +24,7 @@ public class OwningMoney {
     }
 
     public boolean hasMoney() {
-        return this.value != 0;
+        return this.value != NO_REMAINING_MONEY;
     }
 
     public void minusValue(final int coin) {

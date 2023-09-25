@@ -6,6 +6,9 @@ public class InputValidator {
 
     private static final Character MIN_NUMBER_STANDARD = '0';
     private static final Character MAX_NUMBER_STANDARD = '9';
+    private static final String START_UNIT = "[";
+    private static final String DELIMITER = ",";
+    private static final String END_UNIT = "]";
 
     public void validateNumeric(final String input) {
         if (isNotNumeric(input)) {
@@ -24,6 +27,6 @@ public class InputValidator {
     }
 
     private boolean isInvalidProductsInput(final String input) {
-        return !input.startsWith("[") || !input.endsWith("]") || !input.contains(",");
+        return !input.startsWith(START_UNIT) || !input.endsWith(END_UNIT) || !input.contains(DELIMITER);
     }
 }

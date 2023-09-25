@@ -43,6 +43,6 @@ public class Products {
     }
 
     public boolean isPurchasable(final UserMoney userMoney) {
-        return this.products.stream().anyMatch(product -> product.hasAmount() && product.getPrice() <= userMoney.getAmount());
+        return this.products.stream().anyMatch(product -> product.hasQuantity() && product.getPrice() <= userMoney.getAmount());
     }
 }

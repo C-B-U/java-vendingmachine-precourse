@@ -31,6 +31,10 @@ public class Coins {
 
     public Coins calculateCoin(final UserMoney userMoney) {
         int userMoneyAmount = userMoney.getAmount();
+        return getCalculateResult(userMoneyAmount);
+    }
+
+    private Coins getCalculateResult(int userMoneyAmount) {
         final Coins result = new Coins();
 
         for (final Coin coin : coins) {
@@ -41,7 +45,6 @@ public class Coins {
             userMoneyAmount -= coinAmount;
             result.addCoin(coin);
         }
-
         return result;
     }
 }
