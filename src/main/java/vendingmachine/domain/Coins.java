@@ -28,4 +28,20 @@ public class Coins {
                     return String.format(COIN_FORMAT, c.getAmount(), count);
                 }).collect(Collectors.joining());
     }
+
+    public Coins calculateCoin(final UserMoney userMoney) {
+        int userMoneyAmount = userMoney.getAmount();
+        final Coins result = new Coins();
+
+        for (final Coin coin : coins) {
+            final int coinAmount = coin.getAmount();
+            if (coinAmount > userMoneyAmount) {
+                continue;
+            }
+            userMoneyAmount -= coinAmount;
+            result.addCoin(coin);
+        }
+
+        return result;
+    }
 }

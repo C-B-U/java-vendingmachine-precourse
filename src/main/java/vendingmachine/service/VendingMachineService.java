@@ -32,20 +32,27 @@ public class VendingMachineService {
         return vendingMachineRepository.findUserMoney();
     }
 
-    public BuyStatus purchaseProduct(final BuyProduct buyProduct) {
+    public BuyStatus purchaseProduct(final BuyProduct buyProduct, final UserMoney userMoney) {
         final Products products = vendingMachineRepository.findProducts();
         final Product product = products.getProduct(buyProduct);
 
-        final UserMoney userMoney = vendingMachineRepository.findUserMoney();
-        if (isPurchasable(userMoney, products)) {
-            userMoney.decrease(product);
-            product.purchase();
+        if (products.isPurchasable(userMoney)) {
+            return purchase(userMoney, product, products);
+        }
+        return BuyStatus.FINISHED;
+    }
+
+    private BuyStatus purchase(final UserMoney userMoney, final Product product, final Products products) {
+        userMoney.decrease(product);
+        product.purchase();
+        if (products.isPurchasable(userMoney)) {
             return BuyStatus.CONTINUE;
         }
         return BuyStatus.FINISHED;
     }
 
-    private boolean isPurchasable(final UserMoney userMoney, final Products products) {
-        return userMoney.hasRemainingMoney(products) && products.hasProduct();
+    public Coins changeMoney(final UserMoney userMoney) {
+        final Coins coins = vendingMachineRepository.findCoins();
+        return coins.calculateCoin(userMoney);
     }
 }

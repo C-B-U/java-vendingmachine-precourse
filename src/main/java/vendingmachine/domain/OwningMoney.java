@@ -31,6 +31,6 @@ public class OwningMoney {
     }
 
     public boolean isAvailableCoin(final int coin) {
-        return this.value > coin;
+        return this.value >= coin;
     }
 }

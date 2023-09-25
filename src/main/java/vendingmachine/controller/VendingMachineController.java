@@ -24,6 +24,14 @@ public class VendingMachineController {
         makeProduct();
         makeUserMoney();
         buyProducts();
+        changeCoins();
+    }
+
+    private void changeCoins() {
+        final UserMoney userMoney = vendingMachineService.findRemainingUserMoney();
+        outputView.printRemainingMoney(userMoney);
+        final Coins coins = vendingMachineService.changeMoney(userMoney);
+        outputView.printChangeMoney(coins);
     }
 
     private void buyProducts() {
@@ -31,7 +39,7 @@ public class VendingMachineController {
             final UserMoney userMoney = vendingMachineService.findRemainingUserMoney();
             outputView.printBuyProductRequest(userMoney);
             final BuyProduct buyProduct = inputManager.readBuyProduct();
-            final BuyStatus buyStatus = vendingMachineService.purchaseProduct(buyProduct);
+            final BuyStatus buyStatus = vendingMachineService.purchaseProduct(buyProduct, userMoney);
             if (buyStatus.isFinished()) {
                 break;
             }

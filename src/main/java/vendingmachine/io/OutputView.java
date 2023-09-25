@@ -24,7 +24,16 @@ public class OutputView {
     }
 
     public void printBuyProductRequest(final UserMoney userMoney) {
-        System.out.println(String.format(VendingMachineMessage.REMAINING_MONEY.getMessage(), userMoney.getAmount()));
+        printRemainingMoney(userMoney);
         System.out.println(VendingMachineMessage.BUY_PRODUCT_REQUEST.getMessage());
+    }
+
+    public void printRemainingMoney(final UserMoney userMoney) {
+        System.out.println(String.format(VendingMachineMessage.REMAINING_MONEY.getMessage(), userMoney.getAmount()));
+    }
+
+    public void printChangeMoney(final Coins coins) {
+        System.out.println(VendingMachineMessage.CHANGE_MONEY.getMessage());
+        System.out.println(coins.getCoinMessage());
     }
 }

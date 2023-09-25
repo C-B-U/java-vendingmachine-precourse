@@ -4,6 +4,7 @@ import vendingmachine.constant.ErrorMessage;
 
 public class Product {
 
+    private static final int NO_AMOUNT = 0;
     private final String name;
     private final Integer price;
     private Integer amount;
@@ -44,7 +45,7 @@ public class Product {
         }
     }
 
-    public Integer getAmount() {
-        return this.amount;
+    public boolean hasAmount() {
+        return this.amount > NO_AMOUNT;
     }
 }

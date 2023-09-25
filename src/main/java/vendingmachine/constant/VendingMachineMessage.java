@@ -7,7 +7,8 @@ public enum VendingMachineMessage {
     PRODUCT_REQUEST("상품명과 가격, 수량을 입력해 주세요."),
     USER_MONEY_REQUEST("투입 금액을 입력해 주세요."),
     REMAINING_MONEY("투입 금액: %d원"),
-    BUY_PRODUCT_REQUEST("구매할 상품명을 입력해 주세요.");
+    BUY_PRODUCT_REQUEST("구매할 상품명을 입력해 주세요."),
+    CHANGE_MONEY("잔돈");
 
     private final String message;
 
