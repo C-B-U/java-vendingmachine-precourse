@@ -23,6 +23,7 @@ public class InputView {
             outputView.printInputProductsDetail();
             String products = Console.readLine();
             inputValidator.validateDivisionProducts(products);
+            outputView.printEnter();
             return new Products(products);
         });
     }
@@ -33,6 +34,7 @@ public class InputView {
             String money = Console.readLine();
             inputValidator.validateNumeric(money);
             products.validateInputMoney(money);
+            outputView.printEnter();
             return Integer.parseInt(money);
         });
     }
@@ -42,6 +44,7 @@ public class InputView {
             outputView.printInputBuyProductName();
             String name = Console.readLine();
             products.validateInputProductName(name);
+            outputView.printEnter();
             return name;
         });
     }

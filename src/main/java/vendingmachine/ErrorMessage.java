@@ -11,6 +11,7 @@ public enum ErrorMessage {
 
 
 
+    private static final String ERROR = "[ERROR] ";
     private final String message;
 
     ErrorMessage(String message) {
@@ -18,11 +19,6 @@ public enum ErrorMessage {
     }
 
     public String getMessage() {
-        return message;
-    }
-
-    @Override
-    public String toString() {
-        return message;
+        return ERROR + message;
     }
 }

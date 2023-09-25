@@ -6,7 +6,8 @@ public enum ProgressMessage {
     INPUT_PRODUCTS_DETAIL("상품명과 가격, 수량을 입력해 주세요."),
     INPUT_MONEY("투입 금액을 입력해 주세요."),
     INPUT_BUY_PRODUCT_NAME("구매할 상품명을 입력해 주세요."),
-    CUR_INPUT_MONEY("투입 금액: %d원");
+    CUR_INPUT_MONEY("투입 금액: %d원"),
+    RETURN_CHANGE("잔돈");
 
     private final String message;
 

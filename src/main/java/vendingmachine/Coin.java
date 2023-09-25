@@ -30,4 +30,13 @@ public enum Coin {
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.NOT_FOUND_COIN.getMessage()));
 
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(amount);
+    }
 }

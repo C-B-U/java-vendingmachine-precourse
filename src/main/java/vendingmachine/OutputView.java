@@ -34,4 +34,9 @@ public class OutputView {
     public void printCurInputMoney(int money){
         System.out.printf((ProgressMessage.CUR_INPUT_MONEY) + "%n", money);
     }
+
+    public void printResultChange(String returnChange) {
+        System.out.println(ProgressMessage.RETURN_CHANGE);
+        System.out.println(returnChange);
+    }
 }
