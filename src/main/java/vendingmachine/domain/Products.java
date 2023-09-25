@@ -1,5 +1,6 @@
 package vendingmachine.domain;
 
+import vendingmachine.constant.BuyStatus;
 import vendingmachine.constant.ErrorMessage;
 
 import java.util.Collections;
@@ -44,5 +45,21 @@ public class Products {
 
     public boolean isPurchasable(final UserMoney userMoney) {
         return this.products.stream().anyMatch(product -> product.hasQuantity() && product.getPrice() <= userMoney.getAmount());
+    }
+
+    public BuyStatus purchaseProduct(final UserMoney userMoney, final Product product) {
+        if (isPurchasable(userMoney)) {
+            return purchase(userMoney, product);
+        }
+        return BuyStatus.FINISHED;
+    }
+
+    private BuyStatus purchase(final UserMoney userMoney, final Product product) {
+        userMoney.decrease(product);
+        product.purchase();
+        if (isPurchasable(userMoney)) {
+            return BuyStatus.CONTINUE;
+        }
+        return BuyStatus.FINISHED;
     }
 }

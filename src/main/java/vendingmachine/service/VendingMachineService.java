@@ -8,15 +8,15 @@ import vendingmachine.utils.RandomCoinGenerator;
 public class VendingMachineService {
 
     private final VendingMachineRepository vendingMachineRepository;
-    private final RandomCoinGenerator ranhdomCoinGenerator;
+    private final RandomCoinGenerator randomCoinGenerator;
 
     public VendingMachineService() {
         this.vendingMachineRepository = new VendingMachineRepository();
-        this.ranhdomCoinGenerator = new RandomCoinGenerator();
+        this.randomCoinGenerator = new RandomCoinGenerator();
     }
 
     public Coins makeCoins(final OwningMoney owningMoney) {
-        final Coins coins = ranhdomCoinGenerator.generate(owningMoney);
+        final Coins coins = randomCoinGenerator.generate(owningMoney);
         return vendingMachineRepository.saveCoins(coins);
     }
 
@@ -36,19 +36,7 @@ public class VendingMachineService {
         final Products products = vendingMachineRepository.findProducts();
         final Product product = products.getProduct(buyProduct);
 
-        if (products.isPurchasable(userMoney)) {
-            return purchase(userMoney, product, products);
-        }
-        return BuyStatus.FINISHED;
-    }
-
-    private BuyStatus purchase(final UserMoney userMoney, final Product product, final Products products) {
-        userMoney.decrease(product);
-        product.purchase();
-        if (products.isPurchasable(userMoney)) {
-            return BuyStatus.CONTINUE;
-        }
-        return BuyStatus.FINISHED;
+        return products.purchaseProduct(userMoney, product);
     }
 
     public Coins changeMoney(final UserMoney userMoney) {

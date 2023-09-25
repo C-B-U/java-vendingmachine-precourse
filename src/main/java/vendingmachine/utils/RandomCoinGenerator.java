@@ -11,12 +11,11 @@ public class RandomCoinGenerator {
 
     public Coins generate(final OwningMoney owningMoney) {
         final List<Integer> availableCoins = Coin.getCoinByOwningMoney(owningMoney);
-        final Coins coins = new Coins();
-        addCoins(owningMoney, availableCoins, coins);
-        return coins;
+        return addCoins(owningMoney, availableCoins);
     }
 
-    private void addCoins(final OwningMoney owningMoney, final List<Integer> availableCoins, final Coins coins) {
+    private Coins addCoins(final OwningMoney owningMoney, final List<Integer> availableCoins) {
+        final Coins coins = new Coins();
         while (owningMoney.hasMoney()) {
             final int coin = Randoms.pickNumberInList(availableCoins);
             if (owningMoney.isAvailableCoin(coin)) {
@@ -24,5 +23,6 @@ public class RandomCoinGenerator {
                 coins.addCoin(Coin.valueOfAmount(coin));
             }
         }
+        return coins;
     }
 }

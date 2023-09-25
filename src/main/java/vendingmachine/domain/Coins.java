@@ -24,7 +24,7 @@ public class Coins {
     public String getCoinMessage() {
         return Arrays.stream(Coin.values())
                 .map(c -> {
-                    final long count = coins.stream().filter(coin -> c == coin).count();
+                    final long count = this.coins.stream().filter(coin -> c == coin).count();
                     return String.format(COIN_FORMAT, c.getAmount(), count);
                 }).collect(Collectors.joining());
     }
@@ -37,7 +37,7 @@ public class Coins {
     private Coins getCalculateResult(int userMoneyAmount) {
         final Coins result = new Coins();
 
-        for (final Coin coin : coins) {
+        for (final Coin coin : this.coins) {
             final int coinAmount = coin.getAmount();
             if (coinAmount > userMoneyAmount) {
                 continue;
