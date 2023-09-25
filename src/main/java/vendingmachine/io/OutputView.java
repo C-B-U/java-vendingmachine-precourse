@@ -17,4 +17,8 @@ public class OutputView {
     public void printProductRequest() {
         System.out.println(VendingMachineMessage.PRODUCT_REQUEST.getMessage());
     }
+
+    public void printUserMoneyRequest() {
+        System.out.println(VendingMachineMessage.USER_MONEY_REQUEST.getMessage());
+    }
 }

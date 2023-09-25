@@ -14,7 +14,7 @@
   - [x] 대괄호로 묶어 세미콜론으로 구분했는지 검증
   - [x] 상품 저장
 - [ ] 투입 금액 설정
-  - [ ] 투입 금액 입력 요청 메시지 출력
+  - [x] 투입 금액 입력 요청 메시지 출력
   - [ ] 투입 금액 입력
   - [ ] 숫자인지 검증
   - [ ] 투입 금액 저장
@@ -37,6 +37,7 @@
   - printOwningMoney()
   - printCoins()
   - printProductRequest()
+  - printUserMoneyRequest()
 
 - InputView
   - readOwningMoney()

@@ -23,6 +23,11 @@ public class VendingMachineController {
     public void start() {
         makeOwningMoney();
         makeProduct();
+        makeUserMoney();
+    }
+
+    private void makeUserMoney() {
+        outputView.printUserMoneyRequest();
     }
 
     private void makeProduct() {
