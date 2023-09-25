@@ -21,10 +21,15 @@ public class VendingMachineController {
 
     public void start() {
         makeOwningMoney();
+        makeProduct();
+    }
+
+    private void makeProduct() {
+        outputView.printProductRequest();
     }
 
     private void makeOwningMoney() {
-        outputView.printOwningMoney();
+        outputView.printOwningMoneyRequest();
         final OwningMoney owningMoney = inputManager.readOwningMoney();
         final Coins coins = vendingMachineService.makeCoins(owningMoney);
         outputView.printCoins(coins);
