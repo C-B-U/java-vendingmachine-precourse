@@ -12,7 +12,7 @@
   - [x] 상품명, 가격, 수량 입력 요청 메시지 출력
   - [x] 상품명, 가격, 수량 입력
   - [x] 대괄호로 묶어 세미콜론으로 구분했는지 검증
-  - [ ] 상품 저장
+  - [x] 상품 저장
 - [ ] 투입 금액 설정
   - [ ] 투입 금액 입력 요청 메시지 출력
   - [ ] 투입 금액 입력
@@ -53,6 +53,8 @@
 - VendingMachineRepository
   - saveCoins()
   - findCoins()
+  - saveProducts()
+  - findProducts()
 
 - RandomCoinGenerator
   - generate()

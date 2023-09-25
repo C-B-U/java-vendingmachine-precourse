@@ -2,6 +2,7 @@ package vendingmachine.service;
 
 import vendingmachine.domain.Coins;
 import vendingmachine.domain.OwningMoney;
+import vendingmachine.domain.Products;
 import vendingmachine.repository.VendingMachineRepository;
 import vendingmachine.utils.RandomCoinGenerator;
 
@@ -18,5 +19,9 @@ public class VendingMachineService {
     public Coins makeCoins(final OwningMoney owningMoney) {
         final Coins coins = ranhdomCoinGenerator.generate(owningMoney);
         return vendingMachineRepository.saveCoins(coins);
+    }
+
+    public void saveProducts(final Products products) {
+        vendingMachineRepository.saveProducts(products);
     }
 }

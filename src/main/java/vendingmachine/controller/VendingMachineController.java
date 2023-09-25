@@ -28,6 +28,7 @@ public class VendingMachineController {
     private void makeProduct() {
         outputView.printProductRequest();
         final Products products = inputManager.readProducts();
+        vendingMachineService.saveProducts(products);
     }
 
     private void makeOwningMoney() {
