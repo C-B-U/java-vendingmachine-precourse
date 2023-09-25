@@ -24,4 +24,8 @@ public class Product {
     private static boolean isaBreakPriceRule(int price) {
         return price < MIN_PRICE || price % COIN_UNIT != 0;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }
