@@ -43,4 +43,8 @@ public class Product {
             throw new IllegalStateException(ErrorMessage.PRODUCT_NOT_EXISTS.getMessage());
         }
     }
+
+    public Integer getAmount() {
+        return this.amount;
+    }
 }

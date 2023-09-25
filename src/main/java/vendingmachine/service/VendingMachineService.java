@@ -37,11 +37,15 @@ public class VendingMachineService {
         final Product product = products.getProduct(buyProduct);
 
         final UserMoney userMoney = vendingMachineRepository.findUserMoney();
-        if (userMoney.hasRemainingMoney(products)) {
+        if (isPurchasable(userMoney, products)) {
             userMoney.decrease(product);
             product.purchase();
             return BuyStatus.CONTINUE;
         }
         return BuyStatus.FINISHED;
+    }
+
+    private boolean isPurchasable(final UserMoney userMoney, final Products products) {
+        return userMoney.hasRemainingMoney(products) && products.hasProduct();
     }
 }

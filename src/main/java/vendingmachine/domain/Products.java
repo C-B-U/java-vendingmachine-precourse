@@ -45,4 +45,9 @@ public class Products {
     public boolean hasLowerPrice(final Integer amount) {
         return this.products.stream().map(Product::getPrice).anyMatch(price -> price < amount);
     }
+
+    public boolean hasProduct() {
+        return this.products.stream()
+                .anyMatch(product -> product.getAmount() > 0);
+    }
 }
