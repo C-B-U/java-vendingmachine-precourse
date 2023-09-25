@@ -43,4 +43,8 @@ public class VendingMachine {
     public void registerProducts(Products products) {
         this.products = products;
     }
+
+    public Products getProducts() {
+        return products;
+    }
 }

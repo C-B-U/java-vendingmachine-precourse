@@ -18,8 +18,21 @@ public class MachineController {
        int amountHeld = inputView.inputMachineAmountHeld();
        vendingMachine.saveRandomCoin(amountHeld);
        outputView.printMachineAmountHeld(vendingMachine.showRandomCoins());
+
        Products products = inputView.inputProducts();
        vendingMachine.registerProducts(products);
+
        calculator.receiveMoney(inputView.inputMoney(products));
+       buyProducts(products);
+
+    }
+
+    private void buyProducts(Products products) {
+        while (calculator.isBuyingProducts()){
+            outputView.printCurInputMoney(calculator.getInputMoney());
+            String name = inputView.inputBuyProduct(products);
+            calculator.buyProducts(name);
+        }
+        //TODO : 잔돈 반환
     }
 }
