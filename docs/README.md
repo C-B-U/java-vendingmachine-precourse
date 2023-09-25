@@ -1,11 +1,11 @@
 ## 기능 목록
-- [ ] 자판기 보유 금액 생성
+- [x] 자판기 보유 금액 생성
   - [x] 자판기 보유 금액 입력 요청 메시지 출력
   - [x] 자판기 보유 금액 입력
   - [x] 숫자인지 검증
   - [x] 10원으로 나누어 떨어지는지 검증
 - [ ] 자판기 보유 동전 생성
-  - [ ] 자판기 보유 동전 랜덤 생성
+  - [x] 자판기 보유 동전 랜덤 생성
   - [ ] 자판기 보유 동전 저장
   - [ ] 자판기 보유 동전 출력
 - [ ] 상품 가격 및 수량 저장
@@ -44,6 +44,21 @@
 
 - InputValidator
   - validateNumeric()
+
+- VendingMachineService
+  - makeCoins
+
+- VendingMachineRepository
+  - saveCoins()
+  - findCoins()
+
+- RandomCoinGenerator
+  - generate()
+
+- OwningMoney
+  - getValue()
+  - hasMoney()
+  - minusValue()
 
 ## 열거형 목록
 - Coin
