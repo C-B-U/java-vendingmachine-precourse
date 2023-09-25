@@ -36,7 +36,16 @@
 - OutputView
   - printOwningMoney()
 
+- InputView
+  - readOwningMoney()
+
+- InputManager
+  - readOwningMoney()
+
+- InputValidator
+  - validateNumeric()
 
 ## 열거형 목록
 - Coin
 - VendingMachineMessage
+- ErrorMessage
