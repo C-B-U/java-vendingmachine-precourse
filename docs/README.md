@@ -1,0 +1,107 @@
+## 기능 목록
+- [x] 자판기 보유 금액 생성
+  - [x] 자판기 보유 금액 입력 요청 메시지 출력
+  - [x] 자판기 보유 금액 입력
+  - [x] 숫자인지 검증
+  - [x] 10원으로 나누어 떨어지는지 검증
+- [x] 자판기 보유 동전 생성
+  - [x] 자판기 보유 동전 랜덤 생성
+  - [x] 자판기 보유 동전 저장
+  - [x] 자판기 보유 동전 출력
+- [x] 상품 가격 및 수량 저장
+  - [x] 상품명, 가격, 수량 입력 요청 메시지 출력
+  - [x] 상품명, 가격, 수량 입력
+  - [x] 대괄호로 묶어 세미콜론으로 구분했는지 검증
+  - [x] 상품 저장
+- [x] 투입 금액 설정
+  - [x] 투입 금액 입력 요청 메시지 출력
+  - [x] 투입 금액 입력
+  - [x] 숫자인지 검증
+  - [x] 투입 금액 저장
+- [x] 상품 구매
+  - [x] 구매할 상품명 입력 요청 메시지 출력
+  - [x] 구매할 상품명 입력
+  - [x] 상품 구매
+    - [x] 금액 차감
+    - [x] 차감된 투입 금액 출력
+- [x] 남은 금액이 최저 가격보다 적거나, 모든 상품 소진시 잔돈 반환
+  - [x] 반환할 수 없는 경우 잔돈으로 반환할 수 있는 금액만 반환 (잔액 부족시 or 나눠 떨어지지 않을시)
+  - [x] 잔돈 동전별로 출력
+
+## 구현 클래스 목록
+
+- VendingMachineController
+  - start()
+
+- OutputView
+  - printVendingMachineMoney()
+  - printCoins()
+  - printProductRequest()
+  - printUserMoneyRequest()
+  - printBuyProductRequest()
+  - printRemainingMoney()
+
+- InputView
+  - readVendingMachineMoney()
+  - readProducts()
+  - readUserMoney()
+  - readBuyProduct()
+
+- InputManager
+  - readVendingMachineMoney()
+  - readProducts()
+  - readUserMoney()
+
+- InputValidator
+  - validateNumeric()
+  - validateProducts()
+
+- VendingMachineService
+  - makeCoins
+  - saveProducts()
+  - saveUserMoney()
+  - findRemainingUserMoney()
+  - purchaseProduct()
+
+- VendingMachineRepository
+  - saveCoins()
+  - findCoins()
+  - saveProducts()
+  - findProducts()
+  - saveUserMoney()
+  - findUserMoney()
+
+- RandomCoinGenerator
+  - generate()
+
+- VendingMachineMoney
+  - getValue()
+  - hasMoney()
+  - minusValue()
+
+- Coins
+  - addCoin()
+
+- Product
+  - getName()
+  - getPrice()
+  - hasSameName()
+  - purchase()
+
+- Products
+  - hasLowerPrice()
+  - getProduct()
+
+- UserMoney
+  - getAmount()
+  - hasRemainingMoney()
+  - decrease()
+
+- BuyProduct
+  - getName()
+
+## 열거형 목록
+- Coin
+- VendingMachineMessage
+- ErrorMessage
+- BuyStatus
