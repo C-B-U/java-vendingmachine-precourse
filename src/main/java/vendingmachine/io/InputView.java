@@ -15,4 +15,10 @@ public class InputView {
         inputValidator.validateNumeric(input);
         return input;
     }
+
+    public String readProducts() {
+        final String input = Console.readLine();
+        inputValidator.validateProducts(input);
+        return input;
+    }
 }

@@ -1,8 +1,13 @@
 package vendingmachine.io;
 
 import vendingmachine.domain.OwningMoney;
+import vendingmachine.domain.Product;
+import vendingmachine.domain.Products;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class InputManager {
 
@@ -14,6 +19,19 @@ public class InputManager {
 
     public OwningMoney readOwningMoney() {
         return read(() -> new OwningMoney(Integer.parseInt(inputView.readOwningMoney())));
+    }
+
+    public Products readProducts() {
+        return read(() -> {
+            final String input = inputView.readProducts();
+            final List<Product> products = Arrays.stream(input.split(";"))
+                    .map(i -> i.substring(1, i.length() - 1))
+                    .map(s -> {
+                        final String[] strings = s.split(",");
+                        return new Product(strings[0], Integer.parseInt(strings[1]), Integer.parseInt(strings[2]));
+                    }).collect(Collectors.toList());
+            return new Products(products);
+        });
     }
 
     private <T> T read(final Supplier<T> supplier) {
