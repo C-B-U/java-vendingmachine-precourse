@@ -22,4 +22,8 @@ public class OutputView {
         System.out.println(ProgressMessage.MACHINE_AMOUNT_HELD);
         System.out.println(screen);
     }
+
+    public void printInputMoney(){
+        System.out.println(ProgressMessage.INPUT_MONEY);
+    }
 }
