@@ -21,4 +21,10 @@ public class InputView {
         inputValidator.validateProducts(input);
         return input;
     }
+
+    public String readUserMoney() {
+        final String input = Console.readLine();
+        inputValidator.validateNumeric(input);
+        return input;
+    }
 }

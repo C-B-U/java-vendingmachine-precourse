@@ -3,6 +3,7 @@ package vendingmachine.controller;
 import vendingmachine.domain.Coins;
 import vendingmachine.domain.OwningMoney;
 import vendingmachine.domain.Products;
+import vendingmachine.domain.UserMoney;
 import vendingmachine.io.InputManager;
 import vendingmachine.io.OutputView;
 import vendingmachine.service.VendingMachineService;
@@ -28,6 +29,7 @@ public class VendingMachineController {
 
     private void makeUserMoney() {
         outputView.printUserMoneyRequest();
+        final UserMoney userMoney = inputManager.readUserMoney();
     }
 
     private void makeProduct() {

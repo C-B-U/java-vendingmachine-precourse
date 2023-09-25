@@ -3,6 +3,7 @@ package vendingmachine.io;
 import vendingmachine.domain.OwningMoney;
 import vendingmachine.domain.Product;
 import vendingmachine.domain.Products;
+import vendingmachine.domain.UserMoney;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +33,10 @@ public class InputManager {
                     }).collect(Collectors.toList());
             return new Products(products);
         });
+    }
+
+    public UserMoney readUserMoney() {
+        return read(() -> new UserMoney(Integer.parseInt(inputView.readUserMoney())));
     }
 
     private <T> T read(final Supplier<T> supplier) {
