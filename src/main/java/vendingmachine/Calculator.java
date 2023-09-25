@@ -12,4 +12,20 @@ public class Calculator {
     public void receiveMoney(int inputMoney) {
         this.inputMoney = inputMoney;
     }
+
+    public boolean isBuyingProducts(){
+        Products products = vendingMachine.getProducts();
+        return products.isBuyingProducts(inputMoney) ;
+    }
+
+    public void buyProducts(String name){
+        Products products = vendingMachine.getProducts();
+        int productPrice = products.getProductPrice(name);
+        inputMoney -= productPrice;
+    }
+
+    public int getInputMoney() {
+        return inputMoney;
+    }
+
 }

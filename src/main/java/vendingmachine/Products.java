@@ -25,4 +25,32 @@ public class Products {
         }
     }
 
+    public void validateInputProductName(String name) {
+        if (products.stream().noneMatch(product -> product.getName().equals(name))){
+            throw new IllegalArgumentException(ErrorMessage.INPUT_PRODUCT_NAME_ERROR.getMessage());
+        }
+    }
+
+    public boolean isBuyingProducts(int inputMoney){
+        int minProductPrice = products.stream()
+                .mapToInt(Product::getPrice)
+                .min()
+                .orElse(Integer.MAX_VALUE);
+        return inputMoney > minProductPrice && isNotProductSoldOut();
+    }
+
+    private boolean isNotProductSoldOut(){
+        int amount = products.stream()
+                .mapToInt(Product::getAmount)
+                .sum();
+        return amount != 0;
+    }
+
+    public int getProductPrice(String name){
+        return products.stream()
+                .filter(product -> product.getName().equals(name))
+                .findFirst()
+                .map(Product::getPrice)
+                .orElse(Integer.MAX_VALUE);
+    }
 }
