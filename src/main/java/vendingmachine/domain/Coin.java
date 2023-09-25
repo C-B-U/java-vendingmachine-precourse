@@ -38,4 +38,12 @@ public enum Coin {
     public boolean isChangeable(int price) {
         return price > this.amount;
     }
+
+    public int calculateTotalAmount(int count) {
+        return this.amount * count;
+    }
+
+    public int calculateCoinCount(int money) {
+        return money % this.amount;
+    }
 }

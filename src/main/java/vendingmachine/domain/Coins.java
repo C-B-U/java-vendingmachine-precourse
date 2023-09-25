@@ -58,7 +58,7 @@ public class Coins {
     private void calculateChange(Map<Coin, Integer> change, int money) {
         for (Coin coin: Coin.values()) {
             int coinNumber = returnChange(coin, money, change);
-            money -= coinNumber * coin.getPrice();
+            money -= coin.calculateTotalAmount(coinNumber);
             if (money <= 0 || isExistChange()) {
                 break;
             }
@@ -93,7 +93,7 @@ public class Coins {
     }
 
     private int calculateCoinNumber(int money, Coin coin) {
-        int num = money % coin.getPrice();
+        int num = coin.calculateCoinCount(money);
         if (elements.get(coin) > num) {
             return elements.get(coin);
         }
