@@ -5,7 +5,7 @@ import vendingmachine.constants.ErrorMessage;
 public class InputValidator {
     private static final String NUMERIC_REGEX = "^[0-9]+$";
     private static final int MIN_MACHINE_AMOUNT_HELD = 100;
-    private static final String PRODUCT_PATTERN_REGEX = "\\[([^,]+),(\\d+),(\\d+)];";
+    private static final String PRODUCT_PATTERN_REGEX = "\\[[^\\[\\]]+,\\d+,\\d+\\](;\\[[^\\[\\]]+,\\d+,\\d+\\])*";
 
     public void validateMachineAmountHeld(String amount) {
         validateNumeric(amount);
@@ -21,7 +21,7 @@ public class InputValidator {
     }
 
     public void validateDivisionProducts(String products) {
-        if (products.matches(PRODUCT_PATTERN_REGEX)) {
+        if (!products.matches(PRODUCT_PATTERN_REGEX)) {
             throw new IllegalArgumentException(ErrorMessage.PRODUCT_REGEX_ERROR.getMessage());
         }
     }
