@@ -27,6 +27,16 @@ public class InputView {
         });
     }
 
+    public Integer inputMoney(Products products){
+        return read(() -> {
+            outputView.printInputMoney();
+            String money = Console.readLine();
+            inputValidator.validateNumeric(money);
+            products.validateInputMoney(money);
+            return Integer.parseInt(money);
+        });
+    }
+
 
 
     private <T> T read(Supplier<T> input){
