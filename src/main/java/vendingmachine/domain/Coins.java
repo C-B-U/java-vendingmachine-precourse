@@ -57,16 +57,22 @@ public class Coins {
 
     private void calculateChange(Map<Coin, Integer> change, int money) {
         for (Coin coin: Coin.values()) {
-            if (coin.getPrice() < money) {
-                int coinNumber = calculateCoinNumber(money, coin);
-                elements.put(coin, elements.get(coin) - coinNumber);
-                change.put(coin, coinNumber);
-                money -= coinNumber * coin.getPrice();
-            }
+            int coinNumber = returnChange(coin, money, change);
+            money -= coinNumber * coin.getPrice();
             if (money <= 0 || isExistChange()) {
                 break;
             }
         }
+    }
+
+    private int returnChange(Coin coin, int money, Map<Coin, Integer> change) {
+        int coinNumber = 0;
+        if (coin.isChangeable(money)) {
+            coinNumber = calculateCoinNumber(money, coin);
+            elements.put(coin, elements.get(coin) - coinNumber);
+            change.put(coin, coinNumber);
+        }
+        return coinNumber;
     }
 
     private String makeScreen(Map<Coin, Integer> change, StringBuilder sb) {

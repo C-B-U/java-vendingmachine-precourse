@@ -34,4 +34,8 @@ public enum Coin {
     public int getPrice() {
         return this.amount;
     }
+
+    public boolean isChangeable(int price) {
+        return price > this.amount;
+    }
 }
