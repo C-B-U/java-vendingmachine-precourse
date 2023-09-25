@@ -24,4 +24,23 @@ public class Product {
     public String getName() {
         return this.name;
     }
+
+    public Integer getPrice() {
+        return this.price;
+    }
+
+    public boolean hasSameName(final BuyProduct buyProduct) {
+        return this.name.equals(buyProduct.getName());
+    }
+
+    public void purchase() {
+        validateAmount();
+        this.amount--;
+    }
+
+    private void validateAmount() {
+        if (this.amount <= 0) {
+            throw new IllegalStateException(ErrorMessage.PRODUCT_NOT_EXISTS.getMessage());
+        }
+    }
 }

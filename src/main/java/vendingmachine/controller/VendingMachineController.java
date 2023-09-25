@@ -1,9 +1,7 @@
 package vendingmachine.controller;
 
-import vendingmachine.domain.Coins;
-import vendingmachine.domain.OwningMoney;
-import vendingmachine.domain.Products;
-import vendingmachine.domain.UserMoney;
+import vendingmachine.constant.BuyStatus;
+import vendingmachine.domain.*;
 import vendingmachine.io.InputManager;
 import vendingmachine.io.OutputView;
 import vendingmachine.service.VendingMachineService;
@@ -25,6 +23,19 @@ public class VendingMachineController {
         makeOwningMoney();
         makeProduct();
         makeUserMoney();
+        buyProducts();
+    }
+
+    private void buyProducts() {
+        while (true) {
+            final UserMoney userMoney = vendingMachineService.findRemainingUserMoney();
+            outputView.printBuyProductRequest(userMoney);
+            final BuyProduct buyProduct = inputManager.readBuyProduct();
+            final BuyStatus buyStatus = vendingMachineService.purchaseProduct(buyProduct);
+            if (buyStatus.isFinished()) {
+                break;
+            }
+        }
     }
 
     private void makeUserMoney() {

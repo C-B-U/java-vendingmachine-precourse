@@ -7,4 +7,8 @@ public class BuyProduct {
     public BuyProduct(final String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

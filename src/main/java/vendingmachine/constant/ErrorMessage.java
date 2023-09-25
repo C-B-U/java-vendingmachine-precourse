@@ -5,7 +5,9 @@ public enum ErrorMessage {
     INVALID_MONEY("숫자가 단위로 떨어지지 않습니다."),
     INVALID_AMOUNT("잘못된 Amount 입니다."),
     INVALID_PRODUCTS_INPUT("잘못된 Product 입력입니다."),
-    NEGATIVE_NUMBER("음수는 받을 수 없습니다.");
+    NEGATIVE_NUMBER("음수는 받을 수 없습니다."),
+    PRODUCT_NOT_EXISTS("존재하지 않는 상품입니다."),
+    NOT_ENOUGH_MONEY("잔액이 충분하지 않습니다.");
 
     private static final String ERROR_PREFIX = "[ERROR] ";
     private final String message;

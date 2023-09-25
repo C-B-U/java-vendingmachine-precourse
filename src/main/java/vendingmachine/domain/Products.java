@@ -23,4 +23,26 @@ public class Products {
     private boolean isUnique(final List<Product> products) {
         return products.stream().map(Product::getName).distinct().count() != products.size();
     }
+
+    public Product getProduct(final BuyProduct buyProduct) {
+        validateProduct(buyProduct);
+        return products.stream()
+                .filter(product -> product.hasSameName(buyProduct))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException(ErrorMessage.PRODUCT_NOT_EXISTS.getMessage()));
+    }
+
+    private void validateProduct(final BuyProduct buyProduct) {
+        if (hasNoMatchingProduct(buyProduct)) {
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_NOT_EXISTS.getMessage());
+        }
+    }
+
+    private boolean hasNoMatchingProduct(final BuyProduct buyProduct) {
+        return this.products.stream().map(Product::getName).noneMatch(name -> name.equals(buyProduct.getName()));
+    }
+
+    public boolean hasLowerPrice(final Integer amount) {
+        return this.products.stream().map(Product::getPrice).anyMatch(price -> price < amount);
+    }
 }
