@@ -37,7 +37,7 @@ public class VendingMachineController {
     private void buyProducts() {
         BuyStatus buyStatus = BuyStatus.CONTINUE;
 
-        while (buyStatus.isFinished()) {
+        while (buyStatus.isContinue()) {
             final UserMoney userMoney = vendingMachineService.findRemainingUserMoney();
             outputView.printBuyProductRequest(userMoney);
             final BuyProduct buyProduct = inputManager.readBuyProduct();
