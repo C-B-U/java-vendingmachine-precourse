@@ -12,9 +12,9 @@ public class InputValidator {
         }
     }
 
-    private void validateNumeric(String amount) {
+    public void validateNumeric(String amount) {
         if (!amount.matches(NUMERIC_REGEX)){
-            throw new IllegalArgumentException(ErrorMessage.MACHINE_AMOUNT_HELD_NUMERIC_ERROR.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.MACHINE_COIN_NUMERIC_ERROR.getMessage());
         }
     }
 
