@@ -6,7 +6,8 @@ public enum ErrorMessage {
     NOT_FOUND_COIN("존재 하지 않는 Coin 입니다."),
     PRODUCT_REGEX_ERROR("일치하지 않는 상품 형식입니다."),
     PRODUCT_PRICE_ERROR("상품 가격은 100원부터 시작하며, 10원으로 나누어떨어져야 합니다."),
-    INPUT_MONEY_ERROR("입력한 금액이 너무 적습니다.");
+    INPUT_MONEY_ERROR("입력한 금액이 너무 적습니다."),
+    INPUT_PRODUCT_NAME_ERROR("존재하지 않는 상품명 입니다.");
 
 
 

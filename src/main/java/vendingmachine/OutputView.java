@@ -26,4 +26,12 @@ public class OutputView {
     public void printInputMoney(){
         System.out.println(ProgressMessage.INPUT_MONEY);
     }
+
+    public void printInputBuyProductName() {
+        System.out.println(ProgressMessage.INPUT_BUY_PRODUCT_NAME);
+    }
+
+    public void printCurInputMoney(int money){
+        System.out.printf((ProgressMessage.CUR_INPUT_MONEY) + "%n", money);
+    }
 }
