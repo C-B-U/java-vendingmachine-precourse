@@ -28,11 +28,13 @@ public class MachineController {
     }
 
     private void buyProducts(Products products) {
-        while (calculator.isBuyingProducts()){
+        while (true){
             outputView.printCurInputMoney(calculator.getInputMoney());
+            if(calculator.isBuyingProducts()) break;
+
             String name = inputView.inputBuyProduct(products);
             calculator.buyProducts(name);
         }
-        //TODO : 잔돈 반환
+        outputView.printResultChange(calculator.returnChange());
     }
 }

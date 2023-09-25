@@ -20,7 +20,7 @@ public class Products {
 
     public void validateInputMoney(String money){
         int price = Integer.parseInt(money);
-        if(products.stream().anyMatch(product -> product.getPrice() > price)){
+        if(getMinProductPrice() > price){
             throw new IllegalArgumentException(ErrorMessage.INPUT_MONEY_ERROR.getMessage());
         }
     }
@@ -32,18 +32,21 @@ public class Products {
     }
 
     public boolean isBuyingProducts(int inputMoney){
-        int minProductPrice = products.stream()
+        return inputMoney < getMinProductPrice() || isProductSoldOut();
+    }
+
+    private int getMinProductPrice() {
+        return products.stream()
                 .mapToInt(Product::getPrice)
                 .min()
                 .orElse(Integer.MAX_VALUE);
-        return inputMoney > minProductPrice && isNotProductSoldOut();
     }
 
-    private boolean isNotProductSoldOut(){
+    private boolean isProductSoldOut(){
         int amount = products.stream()
                 .mapToInt(Product::getAmount)
                 .sum();
-        return amount != 0;
+        return amount == 0;
     }
 
     public int getProductPrice(String name){
